@@ -1,2 +1,2 @@
 # DesignPatternsReview
-Several exercises about design patterns for reviewing them
+Several exercises about design patterns for reviewing them.

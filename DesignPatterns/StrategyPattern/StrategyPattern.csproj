@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Behavior\" />
+    <Folder Include="Duck\" />
+    <Folder Include="Behavior\QuackBehavior\" />
+    <Folder Include="Behavior\FlyBehavior\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Behavior\FlyBehavior\MuteQuack.cs" />
+  </ItemGroup>
+</Project>
