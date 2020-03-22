@@ -1,4 +1,7 @@
-﻿namespace StrategyPattern
+﻿using StrategyPattern.Behavior.FlyBehavior;
+using StrategyPattern.Behavior.QuackBehavior;
+
+namespace StrategyPattern.Duck
 {
     public class MallardDuck : Duck
     {

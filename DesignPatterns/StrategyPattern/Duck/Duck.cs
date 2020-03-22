@@ -1,4 +1,6 @@
-﻿namespace StrategyPattern
+﻿using StrategyPattern.Behavior.QuackBehavior;
+
+namespace StrategyPattern.Duck
 {
     public abstract class Duck
     {

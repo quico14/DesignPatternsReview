@@ -1,4 +1,4 @@
-﻿namespace StrategyPattern
+﻿namespace StrategyPattern.Behavior.QuackBehavior
 {
     public class MuteQuack : QuackBehavior
     {

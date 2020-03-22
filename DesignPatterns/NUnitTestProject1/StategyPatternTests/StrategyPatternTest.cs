@@ -1,8 +1,8 @@
-using StrategyPattern;
 using NUnit.Framework;
-using NUnitTestProject1;
-using System;
-using Microsoft.VisualBasic.CompilerServices;
+using StrategyPattern;
+using StrategyPattern.Behavior.FlyBehavior;
+using StrategyPattern.Behavior.QuackBehavior;
+using StrategyPattern.Duck;
 
 namespace Tests
 {
@@ -23,6 +23,34 @@ namespace Tests
             Duck mallardDuck = new MallardDuck();
 
             Assert.That(mallardDuck.PerformQuack(), Is.EqualTo("Quack!"));
+        }
+    }
+
+    [TestFixture]
+    public class WhenCreatingModelDuck
+    {
+        [Test]
+        public void DisplayIsInitialized()
+        {
+            Duck modelDuck = new ModelDuck();
+
+            Assert.That(modelDuck.Display(), Is.EqualTo("I'm model duck :'("));
+        }
+
+        [Test]
+        public void QuackBehaviorIsUsed()
+        {
+            Duck modelDuck = new ModelDuck();
+
+            Assert.That(modelDuck.PerformQuack(), Is.EqualTo("Quack!"));
+        }
+
+        [Test]
+        public void FlyBehaviorIsUsed()
+        {
+            Duck modelDuck = new ModelDuck();
+
+            Assert.That(modelDuck.PerformFly(), Is.EqualTo("No fly :("));
         }
     }
 
@@ -84,12 +112,21 @@ namespace Tests
 
             Assert.That(behavior.Fly(), Is.EqualTo("Flying!"));
         }
+
         [Test]
         public void NoFlyBehaviorIsUsed()
         {
             FlyBehavior behavior = new NoFly();
 
             Assert.That(behavior.Fly(), Is.EqualTo("No fly :("));
+        }
+
+        [Test]
+        public void FlyRocketPoweredBehaviorIsUsed()
+        {
+            FlyBehavior behavior = new FlyRocketPowered();
+
+            Assert.That(behavior.Fly(), Is.EqualTo("I'm flying with a rocket!"));
         }
     }
 }

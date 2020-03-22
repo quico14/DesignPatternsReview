@@ -6,10 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Behavior\" />
     <Folder Include="Duck\" />
     <Folder Include="Behavior\QuackBehavior\" />
-    <Folder Include="Behavior\FlyBehavior\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Behavior\FlyBehavior\MuteQuack.cs" />

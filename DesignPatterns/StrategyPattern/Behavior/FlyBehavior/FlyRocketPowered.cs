@@ -1,10 +1,10 @@
 ﻿namespace StrategyPattern.Behavior.FlyBehavior
 {
-    public class NormalFly : StrategyPattern.FlyBehavior
+    public class FlyRocketPowered : StrategyPattern.FlyBehavior
     {
         public string Fly()
         {
-            return "Flying!";
+            return "I'm flying with a rocket!";
         }
     }
 }
