@@ -1,15 +1,15 @@
 ﻿namespace StrategyPattern
 {
-    public class MallardDuck : Duck
+    public class ModelDuck : Duck
     {
-        public MallardDuck()
+        public ModelDuck()
         {
             this.quackBehavior = new NormalQuack();
             this.flyBehavior = new NormalFly();
         }
         public override string Display()
         {
-            return "I'm a real mallard duck :'(";
+            return "I'm model duck :'(";
         }
     }
 }

@@ -21,18 +21,30 @@ namespace Tests
         public void QuackBehaviorIsUsed()
         {
             Duck mallardDuck = new MallardDuck();
-            mallardDuck.setQuackBehavior(new NormalQuack());
 
             Assert.That(mallardDuck.PerformQuack(), Is.EqualTo("Quack!"));
         }
+    }
 
+    [TestFixture]
+    public class WhenSettingBehavior
+    {
         [Test]
-        public void FlyBehaviorIsUsed()
+        public void QuackBehaviorIsSet()
         {
             Duck mallardDuck = new MallardDuck();
-            mallardDuck.setFlyBehavior(new NormalFly());
+            mallardDuck.setQuackBehavior(new MuteQuack());
 
-            Assert.That(mallardDuck.PerformFly(), Is.EqualTo("Flying!"));
+            Assert.That(mallardDuck.PerformQuack(), Is.EqualTo(""));
+        }
+
+        [Test]
+        public void FlyBehaviorIsSet()
+        {
+            Duck mallardDuck = new MallardDuck();
+            mallardDuck.setFlyBehavior(new NoFly());
+
+            Assert.That(mallardDuck.PerformFly(), Is.EqualTo("No fly :("));
         }
     }
 
