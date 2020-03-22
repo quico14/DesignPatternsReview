@@ -2,16 +2,27 @@
 {
     public abstract class Duck
     {
-        protected QuackBehavior quack;
-        protected FlyBehavior fly;
+        protected QuackBehavior quackBehavior;
+        protected FlyBehavior flyBehavior;
+
         public abstract string Display();
+
         public string PerformQuack()
         {
-            return quack.Quack();
+            return quackBehavior.Quack();
         }
+
         public string PerformFly()
         {
-            return fly.Fly();
+            return flyBehavior.Fly();
+        }
+
+        public void setQuackBehavior(QuackBehavior quackBehavior) {
+            this.quackBehavior = quackBehavior;
+        }
+
+        public void setFlyBehavior(FlyBehavior flyBehavior) {
+            this.flyBehavior = flyBehavior;
         }
     }
 }

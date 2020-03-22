@@ -21,6 +21,7 @@ namespace Tests
         public void QuackBehaviorIsUsed()
         {
             Duck mallardDuck = new MallardDuck();
+            mallardDuck.setQuackBehavior(new NormalQuack());
 
             Assert.That(mallardDuck.PerformQuack(), Is.EqualTo("Quack!"));
         }
@@ -29,6 +30,7 @@ namespace Tests
         public void FlyBehaviorIsUsed()
         {
             Duck mallardDuck = new MallardDuck();
+            mallardDuck.setFlyBehavior(new NormalFly());
 
             Assert.That(mallardDuck.PerformFly(), Is.EqualTo("Flying!"));
         }
