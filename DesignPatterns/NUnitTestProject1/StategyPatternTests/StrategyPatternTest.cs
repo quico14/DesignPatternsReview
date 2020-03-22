@@ -24,6 +24,14 @@ namespace Tests
 
             Assert.That(mallardDuck.PerformQuack(), Is.EqualTo("Quack!"));
         }
+
+        [Test]
+        public void FlyBehaviorIsUsed()
+        {
+            Duck mallardDuck = new MallardDuck();
+
+            Assert.That(mallardDuck.PerformFly(), Is.EqualTo("Flying!"));
+        }
     }
 
     [TestFixture]
