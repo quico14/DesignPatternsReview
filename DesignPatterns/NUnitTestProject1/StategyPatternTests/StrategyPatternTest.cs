@@ -4,7 +4,7 @@ using StrategyPattern.Behavior.FlyBehavior;
 using StrategyPattern.Behavior.QuackBehavior;
 using StrategyPattern.Duck;
 
-namespace Tests
+namespace Tests.StategyPatternTests
 {
     [TestFixture]
     public class WhenCreatingMallardDuck

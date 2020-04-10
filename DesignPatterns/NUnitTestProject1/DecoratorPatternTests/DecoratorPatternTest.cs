@@ -2,7 +2,7 @@ using DecoratorPattern;
 using NUnit.Framework;
 using NUnitTestProject1;
 
-namespace Tests
+namespace Tests.DecoratorPatternTests
 {
     [TestFixture]
     public class WhenCreatingDarkRoast
