@@ -3,20 +3,15 @@
     public class DarkRoast : Beverage
     {
         private const double Price = 2;
-        private string description = "The Best Dark Roast";
 
         public DarkRoast()
         {
-            
+            Description = "The Best Dark Roast";
         }
 
-        public DarkRoast(bool milk, bool soy, bool mocha, bool whip) : base(milk, soy, mocha, whip)
+        public override double Cost()
         {
-            Description = description;
-        }
-        public double Cost()
-        {
-            return base.Cost() + Price;
+            return Price;
         }
     }
 }

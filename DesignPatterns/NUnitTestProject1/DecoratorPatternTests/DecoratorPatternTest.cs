@@ -1,6 +1,6 @@
 using DecoratorPattern;
+using DecoratorPattern.Condiments;
 using NUnit.Framework;
-using NUnitTestProject1;
 
 namespace Tests.DecoratorPatternTests
 {
@@ -10,38 +10,51 @@ namespace Tests.DecoratorPatternTests
         [Test]
         public void DescriptionIsInitialized()
         {
-            DarkRoast darkRoast = new DarkRoastBuilder().Build();
+            DarkRoast darkRoast = new DarkRoast();
 
             Assert.That(darkRoast.Description, Is.EqualTo("The Best Dark Roast"));
         }
 
-        [TestCase(true, false, false, false, 2.5)]
-        [TestCase(false, true, false, false, 2.75)]
-        [TestCase(false, false, true, false, 3)]
-        [TestCase(false, false, false, true, 2.57)]
-        public void CostIsComputedWithSingleTopping(bool hasMilk, bool hasMocha, bool hasSoy, bool hasWhip, double expectedCost)
+        [Test]
+        public void CostIsComputedWithMocha()
         {
-            DarkRoast darkRoast = new DarkRoastBuilder()
-                .WithHasMilk(hasMilk)
-                .WithHasMocha(hasMocha)
-                .WithHasSoy(hasSoy)
-                .WithHasWhip(hasWhip)
-                .Build();
+            DarkRoast darkRoast = new DarkRoast();
+            CondimentDecorator darkRoastWithMocha = new Mocha(darkRoast);
 
-            Assert.That(darkRoast.Cost(), Is.EqualTo(expectedCost));
+            Assert.That(darkRoastWithMocha.Cost(), Is.EqualTo(2.5));
         }
 
-        [TestCase(true, true, false, false, 3.25)]
-        public void CostIsComputedWithMultipleTopping(bool hasMilk, bool hasMocha, bool hasSoy, bool hasWhip, double expectedCost)
+        [Test]
+        public void CostIsComputedWithDoubleMocha()
         {
-            DarkRoast darkRoast = new DarkRoastBuilder()
-                .WithHasMilk(hasMilk)
-                .WithHasMocha(hasMocha)
-                .WithHasSoy(hasSoy)
-                .WithHasWhip(hasWhip)
-                .Build();
+            DarkRoast darkRoast = new DarkRoast();
+            CondimentDecorator darkRoastWithMocha = new Mocha(darkRoast);
+            CondimentDecorator darkRoastWithDoubleMocha = new Mocha(darkRoastWithMocha);
 
-            Assert.That(darkRoast.Cost(), Is.EqualTo(expectedCost));
+            Assert.That(darkRoastWithDoubleMocha.Cost(), Is.EqualTo(3));
+        }
+
+        [Test]
+        public void CostIsComputedWithMochaAndEspresso()
+        {
+            DarkRoast darkRoast = new DarkRoast();
+            CondimentDecorator darkRoastWithMocha = new Mocha(darkRoast);
+            CondimentDecorator darkRoastWithMochaAndMilk = new Milk(darkRoastWithMocha);
+
+            Assert.That(darkRoastWithMochaAndMilk.Cost(), Is.EqualTo(3.25));
+        }
+
+        [Test]
+        public void DescriptionWithMochaAndEspresso()
+        {
+            DarkRoast darkRoast = new DarkRoast();
+            CondimentDecorator darkRoastWithMocha = new Mocha(darkRoast);
+            CondimentDecorator darkRoastWithMochaAndMilk = new Milk(darkRoastWithMocha);
+
+            darkRoastWithMocha.GetDescription();
+            darkRoastWithMochaAndMilk.GetDescription();
+
+            Assert.That(darkRoastWithMochaAndMilk.GetDescription(), Is.EqualTo("The Best Dark Roast, milk, mocha"));
         }
     }
 }
