@@ -2,23 +2,19 @@
 {
     public class Milk : CondimentDecorator
     {
-        public Beverage Beverage { get; set; }
+        private readonly Beverage beverage;
         private const double Price = 0.75;
 
         public Milk(Beverage beverage)
         {
-            this.Beverage = beverage;
-            this.Description = beverage.Description;
+            this.beverage = beverage;
         }
+
+        public override string Description => beverage.Description + ", milk";
 
         public override double Cost()
         {
-            return Beverage.Cost() + Price;
-        }
-
-        public override string GetDescription()
-        {
-            return Beverage.GetDescription() + ", milk";
+            return beverage.Cost() + Price;
         }
     }
 }

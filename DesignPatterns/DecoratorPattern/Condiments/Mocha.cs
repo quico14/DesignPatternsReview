@@ -2,23 +2,19 @@
 {
     public class Mocha : CondimentDecorator
     {
-        public Beverage Beverage { get; set; }
+        private readonly Beverage beverage;
         private const double Price = 0.5;
 
         public Mocha(Beverage beverage)
         {
-            this.Beverage = beverage;
-            this.Description = beverage.Description;
+            this.beverage = beverage;
         }
+
+        public override string Description => beverage.Description + ", mocha";
 
         public override double Cost()
         {
-            return Beverage.Cost() + Price;
-        }
-
-        public override string GetDescription()
-        {
-            return Beverage.GetDescription() + ", mocha";
+            return beverage.Cost() + Price;
         }
     }
 }

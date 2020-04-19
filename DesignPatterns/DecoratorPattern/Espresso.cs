@@ -4,10 +4,7 @@
     {
         private const double Price = 3;
 
-        public Espresso()
-        {
-            Description = "Espresso";
-        }
+        public override string Description { get; } = "Espresso";
 
         public override double Cost()
         {

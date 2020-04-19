@@ -51,10 +51,7 @@ namespace Tests.DecoratorPatternTests
             CondimentDecorator darkRoastWithMocha = new Mocha(darkRoast);
             CondimentDecorator darkRoastWithMochaAndMilk = new Milk(darkRoastWithMocha);
 
-            darkRoastWithMocha.GetDescription();
-            darkRoastWithMochaAndMilk.GetDescription();
-
-            Assert.That(darkRoastWithMochaAndMilk.GetDescription(), Is.EqualTo("The Best Dark Roast, milk, mocha"));
+            Assert.That(darkRoastWithMochaAndMilk.Description, Is.EqualTo("The Best Dark Roast, mocha, milk"));
         }
     }
 }
